@@ -1,2 +1,2 @@
-project_id = "round-bounty-363611"
-region     = "europe-west2"
+project_id = "eng-district-390211"
+zone     = "europe-west2-b"
