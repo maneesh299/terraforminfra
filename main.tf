@@ -1,6 +1,6 @@
 resource "google_container_cluster" "pythonetl-cluster" {
   name     = "pythonetl-cluster"
-  location = "var.zone"
+  location = var.zone
 
   remove_default_node_pool = true
 }
