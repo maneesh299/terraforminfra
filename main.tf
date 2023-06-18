@@ -11,3 +11,9 @@ resource "google_container_node_pool" "default" {
   location   = google_container_cluster.pythonetl-cluster.location
   node_count = 1
 }
+resource "google_compute_disk" "my_disk" {
+  name  = "my-gce-pd-volume"
+  size  = 10
+  type  = "pd-standard"
+  zone  = var.zone
+}
