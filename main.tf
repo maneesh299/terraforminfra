@@ -1,9 +1,13 @@
-resource "google_storage_bucket" "bucket" {
-  name     = "test-bucket-random-001122-22"
-  location = "europe-west2"
+resource "google_container_cluster" "pythonetl-cluster" {
+  name     = "pythonetl-cluster"
+  location = "var.zone"
+
+  remove_default_node_pool = true
 }
 
-resource "google_storage_bucket" "gcs_bucket" {
-  name     = "test-bucket-random-00112323"
-  location = "europe-west2"
+resource "google_container_node_pool" "default" {
+  name       = "default"
+  cluster    = google_container_cluster.pythonetl-cluster.name
+  location   = google_container_cluster.pythonetl-cluster.location
+  node_count = 1
 }
