@@ -9,7 +9,7 @@ resource "google_container_cluster" "gke-cluster" {
 }
 resource "google_container_node_pool" "gke-node-pool" {
   name = "sonarqube"
-  location = "asia-southeast1"
+  location = "europe-west2"
   cluster = google_container_cluster.gke-cluster.name
   node_count = 1
 
