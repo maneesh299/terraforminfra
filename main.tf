@@ -1,12 +1,11 @@
-resource "google_container_cluster" "my_cluster" {
-  name               = "my-cluster"
-  location           = "europe-west2"
+resource "google_container_cluster" "gke-cluster" {
+  name = "sonarqube"
+  location = "europe-west2"
+  node_locations = [
+    "europe-west2-b"
+  ]
+  remove_default_node_pool = true
   initial_node_count = 1
-  release_channel    = "regular"
-  network            = "projects/eng-district-390211/global/networks/default"
-  subnetwork         = "projects/eng-district-390211/regions/europe-west2/subnetworks/default"
-  cluster_ipv4_cidr  = "/17"
-  services_ipv4_cidr = "/22"
 }
 resource "google_compute_disk" "my_disk" {
   name  = "my-gce-pd-volume"
